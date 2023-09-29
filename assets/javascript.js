@@ -12,3 +12,26 @@ var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
 
+// Write password to the #password input
+function writePassword() {
+    var correctPrompts = getPrompts();
+    var passwordText = document.querySelector("#password");
+    if (correctPrompts){
+     var newPassword = generatePassword();
+     passwordText.value = newPassword;
+    } else {
+     passwordText.value="";
+    }
+   }
+   // this function runs a for loop that loops through our whole array to find generate our password
+   function generatePassword(){
+     var password = "";
+     for(var i = 0; i < characterLength; i++){
+     var randomIndex = Math.floor(Math.random() * choiceArr.length)
+   password = password + choiceArr[randomIndex];
+     }
+     return password;
+   }
+    
+   
+   
